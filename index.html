@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengaluru Transport Optimizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #00ff9d;
+            --secondary-color: #ff00ff;
+            --background-color: #0a0a0a;
+            --text-color: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+            --neuromorphic-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2),
+                                 -8px -8px 16px rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="light"] {
+            --primary-color: #00cc7d;
+            --secondary-color: #cc00cc;
+            --background-color: #f0f0f0;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --neuromorphic-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1),
+                                 -8px -8px 16px rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--card-bg);
+            transition: .4s;
+            border-radius: 34px;
+            border: 2px solid var(--primary-color);
+            box-shadow: var(--neuromorphic-shadow);
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 2px;
+            bottom: 2px;
+            background-color: var(--primary-color);
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--card-bg);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--neuromorphic-shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.6s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--neuromorphic-shadow), 0 0 20px rgba(0, 255, 157, 0.4);
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-title.visible {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--neuromorphic-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.visible {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neuromorphic-shadow), 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .info-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            box-shadow: var(--neuromorphic-shadow);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .info-section.visible {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .info-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .info-section p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--neuromorphic-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .tech-item.visible {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neuromorphic-shadow), 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--primary-color);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .section {
+                padding: 4rem 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+            margin: 1rem;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-front {
+            background: var(--card-bg);
+            box-shadow: var(--neuromorphic-shadow);
+        }
+
+        .flip-card-back {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            transform: rotateY(180deg);
+            color: var(--text-color);
+        }
+
+        .flip-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .flip-card-back h3 {
+            color: var(--text-color);
+        }
+
+        .flip-card p {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* How It Works Section */
+        .algorithm-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--neuromorphic-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .step-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .step-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            line-height: 1.6;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neuromorphic-shadow), 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .algorithm-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .algorithm-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow), 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .algorithm-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .algorithm-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .algorithm-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .algorithm-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .algorithm-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .algorithm-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .algorithm-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .algorithm-demo {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .algorithm-selector {
+            flex: 1;
+            min-width: 180px;
+            padding: 0.6rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border-radius: var(--border-radius);
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta-button, .reset-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .button-icon {
+            width: 14px;
+            height: 14px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pathfinding-grid {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 1px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+        }
+
+        .grid-cell {
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .grid-cell:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .grid-cell.start {
+            background: linear-gradient(45deg, var(--primary-color), #007E33);
+            animation: pulse 2s infinite;
+        }
+
+        .grid-cell.end {
+            background: linear-gradient(45deg, #FF4444, #CC0000);
+            animation: pulse 2s infinite 1s;
+        }
+
+        .grid-cell.wall {
+            background: #2C3E50;
+            border: 1px solid #34495E;
+        }
+
+        .grid-cell.visited {
+            background: linear-gradient(45deg, #3498DB, #2980B9);
+            animation: visitedPulse 0.5s ease-out;
+        }
+
+        .grid-cell.path {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            animation: pathGlow 0.8s ease-out;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .legend-color.start { background: linear-gradient(45deg, var(--primary-color), #007E33); }
+        .legend-color.end { background: linear-gradient(45deg, #FF4444, #CC0000); }
+        .legend-color.wall { background: #2C3E50; }
+        .legend-color.visited { background: linear-gradient(45deg, #3498DB, #2980B9); }
+        .legend-color.path { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 120px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes visitedPulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pathGlow {
+            0% { transform: scale(0.8); box-shadow: 0 0 5px rgba(0, 255, 157, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 255, 157, 0.5); }
+        }
+
+        @media (max-width: 768px) {
+            .demo-controls {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+            .pathfinding-grid {
+                grid-template-columns: repeat(10, 1fr);
+            }
+            .grid-cell {
+                width: 18px;
+                height: 18px;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0 1rem;
+            }
+            .stat-item {
+                width: 100%;
+            }
+            .legend {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles"></div>
+    <div class="theme-toggle">
+        <label class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <section class="hero">
+        <h1 class="title">Bengaluru Multi-Modal Transport Optimizer</h1>
+        <p class="subtitle">Find the most efficient routes across Bengaluru's public transport network</p>
+        <a href="visualizer.html" class="cta-button">Launch Visualizer</a>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <section class="section" id="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="feature-icon">🚇</div>
+                        <h3>Multi-Modal Routes</h3>
+                        <p>Seamlessly combine different transport modes</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Smart Integration</h3>
+                        <p>Our system intelligently combines Metro, Bus, and Auto services to create the most efficient routes. It considers transfer times, waiting periods, and walking distances between different transport modes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Real-Time Optimization</h3>
+                        <p>Get the best routes instantly</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Dynamic Routing</h3>
+                        <p>Using advanced algorithms, we calculate optimal routes based on multiple factors including time, cost, and convenience. The system updates in real-time to provide the most current route information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Interactive Visualization</h3>
+                        <p>Watch the algorithm in action</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Visual Learning</h3>
+                        <p>Experience the route-finding process through our interactive visualization. Step through the algorithm to understand how it finds the optimal path, making the process transparent and educational.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="info-section">
+            <h3>Advanced Algorithm</h3>
+            <p>Our system uses a combination of Dijkstra's and A* algorithms to find the optimal route. Here's how it works:</p>
+            
+            <div class="algorithm-steps">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h4>Data Collection</h4>
+                    <p>Gather real-time data about transport schedules, traffic conditions, and route information from multiple sources.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h4>Route Analysis</h4>
+                    <p>Analyze possible routes using Dijkstra's algorithm to find the shortest path between nodes in the transport network.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h4>Optimization</h4>
+                    <p>Apply A* algorithm to optimize the route based on multiple factors including time, cost, and convenience.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h4>Multi-Modal Integration</h4>
+                    <p>Combine different transport modes and calculate transfer points, waiting times, and walking distances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="algorithms">
+        <h2 class="section-title">Understanding Algorithms</h2>
+        <div class="algorithm-comparison">
+            <div class="algorithm-card dijkstra">
+                <div class="algorithm-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Dijkstra's Algorithm</h3>
+                <p class="algorithm-description">The reliable pathfinder that guarantees the shortest route by exploring all possibilities systematically.</p>
+                <ul class="algorithm-features">
+                    <li>Always finds optimal solution</li>
+                    <li>Uninformed search strategy</li>
+                    <li>Perfect for cost-based routing</li>
+                    <li>Ideal for metro/transit systems</li>
+                </ul>
+            </div>
+
+            <div class="algorithm-card astar">
+                <div class="algorithm-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <h3>A* Search Algorithm</h3>
+                <p class="algorithm-description">The intelligent pathfinder that uses heuristics to find optimal routes faster than traditional methods.</p>
+                <ul class="algorithm-features">
+                    <li>Heuristic-guided exploration</li>
+                    <li>Faster than Dijkstra's</li>
+                    <li>Optimal with admissible heuristic</li>
+                    <li>Great for real-time navigation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="algorithm-demo">
+            <div class="demo-controls">
+                <select id="algorithm-selector" class="algorithm-selector">
+                    <option value="dijkstra">Dijkstra's Algorithm</option>
+                    <option value="astar">A* Search</option>
+                </select>
+                <button id="start-button" class="cta-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="button-icon">
+                        <path d="M5 3l14 9-14 9V3z"/>
+                    </svg>
+                    Start Pathfinding
+                </button>
+                <button id="reset-button" class="reset-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="button-icon">
+                        <path d="M23 4v6h-6M1 20v-6h6"/>
+                        <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                    </svg>
+                    Reset Grid
+                </button>
+            </div>
+
+            <div class="grid-container">
+                <div id="pathfinding-grid" class="pathfinding-grid"></div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color start"></div>
+                    <span>Start Point</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color end"></div>
+                    <span>End Point</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color wall"></div>
+                    <span>Wall (Click to add)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color visited"></div>
+                    <span>Explored</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color path"></div>
+                    <span>Optimal Path</span>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="nodes-explored">0</div>
+                    <div class="stat-label">Nodes Explored</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="path-length">0</div>
+                    <div class="stat-label">Path Length</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="execution-time">0ms</div>
+                    <div class="stat-label">Execution Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="transport-modes">
+        <h2 class="section-title">Transport Modes</h2>
+        <div class="features-grid">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="feature-icon">🚇</div>
+                        <h3>Namma Metro</h3>
+                        <p>Fast and reliable metro service</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Metro Network</h3>
+                        <p>Access to all metro lines including Purple, Green, and upcoming lines. Real-time schedules, station information, and seamless transfers between lines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="feature-icon">🚌</div>
+                        <h3>BMTC Buses</h3>
+                        <p>Extensive bus network</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Bus Network</h3>
+                        <p>Comprehensive coverage of BMTC routes with real-time bus tracking, schedule information, and integration with other transport modes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="feature-icon">🛺</div>
+                        <h3>Auto Rickshaws</h3>
+                        <p>Last-mile connectivity</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Auto Services</h3>
+                        <p>Integration with auto services for last-mile connectivity, flexible routing options, and seamless transfers from other transport modes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="technology">
+        <h2 class="section-title">Technology Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <span class="tech-icon">🌐</span>
+                <span class="tech-name">HTML5 & CSS3</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-icon">⚡</span>
+                <span class="tech-name">JavaScript</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-icon">🗺️</span>
+                <span class="tech-name">Leaflet.js</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-icon">📊</span>
+                <span class="tech-name">D3.js</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.setAttribute('data-theme', savedTheme);
+            themeToggle.checked = savedTheme === 'light';
+        }
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                document.body.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-title, .feature-card, .info-section, .tech-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Initialize particles
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: {
+                    value: 50,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#00ff9d"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00ff9d",
+                    opacity: 0.2,
+                    width: 1
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+
+    <script>
+        class PathfindingVisualizer {
+            constructor() {
+                this.rows = 12;
+                this.cols = 15;
+                this.grid = [];
+                this.start = { row: 2, col: 2 };
+                this.end = { row: 9, col: 12 };
+                this.isRunning = false;
+                this.stats = { nodesExplored: 0, pathLength: 0, executionTime: 0 };
+                
+                this.initializeGrid();
+                this.setupEventListeners();
+                this.addRandomWalls();
+            }
+
+            initializeGrid() {
+                const gridElement = document.getElementById('pathfinding-grid');
+                gridElement.style.gridTemplateColumns = `repeat(${this.cols}, 1fr)`;
+                gridElement.innerHTML = '';
+                this.grid = [];
+
+                for (let row = 0; row < this.rows; row++) {
+                    this.grid[row] = [];
+                    for (let col = 0; col < this.cols; col++) {
+                        const cell = document.createElement('div');
+                        cell.className = 'grid-cell';
+                        cell.dataset.row = row;
+                        cell.dataset.col = col;
+                        
+                        gridElement.appendChild(cell);
+                        
+                        this.grid[row][col] = {
+                            row, col, element: cell,
+                            isWall: false, isVisited: false, isPath: false,
+                            distance: Infinity, heuristic: 0, fScore: Infinity,
+                            parent: null
+                        };
+                    }
+                }
+
+                this.grid[this.start.row][this.start.col].element.classList.add('start');
+                this.grid[this.end.row][this.end.col].element.classList.add('end');
+            }
+
+            addRandomWalls() {
+                const wallCount = Math.floor(this.rows * this.cols * 0.25);
+                let placed = 0;
+                
+                while (placed < wallCount) {
+                    const row = Math.floor(Math.random() * this.rows);
+                    const col = Math.floor(Math.random() * this.cols);
+                    
+                    if ((row === this.start.row && col === this.start.col) ||
+                        (row === this.end.row && col === this.end.col) ||
+                        this.grid[row][col].isWall) {
+                        continue;
+                    }
+                    
+                    this.grid[row][col].isWall = true;
+                    this.grid[row][col].element.classList.add('wall');
+                    placed++;
+                }
+            }
+
+            setupEventListeners() {
+                document.getElementById('start-button').addEventListener('click', () => this.startPathfinding());
+                document.getElementById('reset-button').addEventListener('click', () => this.resetGrid());
+                
+                document.getElementById('pathfinding-grid').addEventListener('click', (e) => {
+                    if (this.isRunning || !e.target.classList.contains('grid-cell')) return;
+                    
+                    const row = parseInt(e.target.dataset.row);
+                    const col = parseInt(e.target.dataset.col);
+                    const cell = this.grid[row][col];
+                    
+                    if ((row === this.start.row && col === this.start.col) ||
+                        (row === this.end.row && col === this.end.col)) return;
+                    
+                    cell.isWall = !cell.isWall;
+                    cell.element.classList.toggle('wall', cell.isWall);
+                });
+            }
+
+            async startPathfinding() {
+                if (this.isRunning) return;
+                
+                this.isRunning = true;
+                this.clearPath();
+                this.resetStats();
+                
+                const algorithm = document.getElementById('algorithm-selector').value;
+                const startTime = performance.now();
+                
+                try {
+                    if (algorithm === 'dijkstra') {
+                        await this.dijkstra();
+                    } else {
+                        await this.aStar();
+                    }
+                } catch (error) {
+                    console.error('Pathfinding error:', error);
+                }
+                
+                const endTime = performance.now();
+                this.stats.executionTime = Math.round(endTime - startTime);
+                this.updateStatsDisplay();
+                this.isRunning = false;
+            }
+
+            async dijkstra() {
+                const startNode = this.grid[this.start.row][this.start.col];
+                const endNode = this.grid[this.end.row][this.end.col];
+                
+                startNode.distance = 0;
+                const unvisited = this.getAllNodes();
+                
+                while (unvisited.length) {
+                    unvisited.sort((a, b) => a.distance - b.distance);
+                    const current = unvisited.shift();
+                    
+                    if (current.isWall) continue;
+                    if (current.distance === Infinity) break;
+                    
+                    current.isVisited = true;
+                    if (current !== startNode && current !== endNode) {
+                        current.element.classList.add('visited');
+                        this.stats.nodesExplored++;
+                        await this.sleep(30);
+                    }
+                    
+                    if (current === endNode) {
+                        await this.drawPath(endNode);
+                        return;
+                    }
+                    
+                    const neighbors = this.getNeighbors(current);
+                    for (const neighbor of neighbors) {
+                        const distance = current.distance + 1;
+                        if (distance < neighbor.distance) {
+                            neighbor.distance = distance;
+                            neighbor.parent = current;
+                        }
+                    }
+                }
+            }
+
+            async aStar() {
+                const startNode = this.grid[this.start.row][this.start.col];
+                const endNode = this.grid[this.end.row][this.end.col];
+                
+                startNode.distance = 0;
+                startNode.heuristic = this.manhattanDistance(startNode, endNode);
+                startNode.fScore = startNode.heuristic;
+                
+                const openSet = [startNode];
+                const closedSet = new Set();
+                
+                while (openSet.length) {
+                    openSet.sort((a, b) => a.fScore - b.fScore);
+                    const current = openSet.shift();
+                    closedSet.add(current);
+                    
+                    if (current !== startNode && current !== endNode) {
+                        current.element.classList.add('visited');
+                        this.stats.nodesExplored++;
+                        await this.sleep(30);
+                    }
+                    
+                    if (current === endNode) {
+                        await this.drawPath(endNode);
+                        return;
+                    }
+                    
+                    const neighbors = this.getNeighbors(current);
+                    for (const neighbor of neighbors) {
+                        if (neighbor.isWall || closedSet.has(neighbor)) continue;
+                        
+                        const tentativeDistance = current.distance + 1;
+                        
+                        if (!openSet.includes(neighbor)) {
+                            openSet.push(neighbor);
+                        } else if (tentativeDistance >= neighbor.distance) {
+                            continue;
+                        }
+                        
+                        neighbor.parent = current;
+                        neighbor.distance = tentativeDistance;
+                        neighbor.heuristic = this.manhattanDistance(neighbor, endNode);
+                        neighbor.fScore = neighbor.distance + neighbor.heuristic;
+                    }
+                }
+            }
+
+            async drawPath(endNode) {
+                const path = [];
+                let current = endNode.parent;
+                
+                while (current && current !== this.grid[this.start.row][this.start.col]) {
+                    path.push(current);
+                    current = current.parent;
+                }
+                
+                this.stats.pathLength = path.length + 1;
+                
+                for (const node of path.reverse()) {
+                    node.element.classList.add('path');
+                    await this.sleep(50);
+                }
+            }
+
+            getNeighbors(node) {
+                const neighbors = [];
+                const { row, col } = node;
+                
+                const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+                
+                for (const [dRow, dCol] of directions) {
+                    const newRow = row + dRow;
+                    const newCol = col + dCol;
+                    
+                    if (newRow >= 0 && newRow < this.rows && 
+                        newCol >= 0 && newCol < this.cols) {
+                        neighbors.push(this.grid[newRow][newCol]);
+                    }
+                }
+                
+                return neighbors;
+            }
+
+            manhattanDistance(nodeA, nodeB) {
+                return Math.abs(nodeA.row - nodeB.row) + Math.abs(nodeA.col - nodeB.col);
+            }
+
+            getAllNodes() {
+                return this.grid.flat();
+            }
+
+            clearPath() {
+                for (const row of this.grid) {
+                    for (const node of row) {
+                        node.isVisited = false;
+                        node.distance = Infinity;
+                        node.heuristic = 0;
+                        node.fScore = Infinity;
+                        node.parent = null;
+                        node.element.classList.remove('visited', 'path');
+                    }
+                }
+            }
+
+            resetGrid() {
+                if (this.isRunning) return;
+                
+                this.clearPath();
+                
+                for (const row of this.grid) {
+                    for (const node of row) {
+                        if (!((node.row === this.start.row && node.col === this.start.col) ||
+                              (node.row === this.end.row && node.col === this.end.col))) {
+                            node.isWall = false;
+                            node.element.classList.remove('wall');
+                        }
+                    }
+                }
+                
+                this.addRandomWalls();
+                this.resetStats();
+                this.updateStatsDisplay();
+            }
+
+            resetStats() {
+                this.stats = { nodesExplored: 0, pathLength: 0, executionTime: 0 };
+            }
+
+            updateStatsDisplay() {
+                document.getElementById('nodes-explored').textContent = this.stats.nodesExplored;
+                document.getElementById('path-length').textContent = this.stats.pathLength;
+                document.getElementById('execution-time').textContent = `${this.stats.executionTime}ms`;
+            }
+
+            sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        }
+
+        // Initialize the visualizer when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new PathfindingVisualizer();
+        });
+    </script>
+</body>
+</html> 

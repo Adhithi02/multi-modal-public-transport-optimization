@@ -1,0 +1,712 @@
+====================================================================================================
+ COMPREHENSIVE ALGORITHM PERFORMANCE ANALYSIS
+====================================================================================================
+
+--- Running Full Analysis (All Modes Allowed) ---
+
+====================================================================================================
+ DETAILED ALGORITHM PERFORMANCE REPORT
+====================================================================================================
+     route_index       start_node         end_node  dijkstra_time_ms  astar_time_ms  dijkstra_nodes  astar_nodes  dijkstra_cost  astar_cost  dijkstra_path_len  astar_path_len
+0              0         majestic      indiranagar          0.000000       0.000000               7            2            8.0         9.0                  3          
+     2
+1              1         majestic       whitefield          0.000000       0.000000              19            2           23.0        23.0                  2          
+     2
+2              2         majestic        jayanagar          0.000000       0.000000               6            2            7.0         7.0                  2          
+     2
+3              3         majestic           hebbal          0.000000       0.000000              15            7           14.0        14.0                  4          
+     4
+4              4         majestic      koramangala          0.000000       0.000000               8            3            8.0         8.0                  3          
+     3
+5              5         majestic       silk_board          0.000000       0.000000              11            4            9.0         9.0                  3          
+     3
+6              6         majestic  electronic_city          0.000000       0.000000              18            4           23.0        23.0                  3          
+     3
+7              7         majestic      rajajinagar          0.000000      13.386965               3            2            5.0         5.0                  2          
+     2
+8              8         majestic       hsr_layout          0.000000       0.000000              17            8           21.0        21.0                  4          
+     3
+9              9         majestic     yeshwanthpur          0.000000       0.000000               9            3            8.0         8.0                  3          
+     3
+10            10         majestic     banashankari          0.000000       0.000000              13            4           14.0        14.0                  3          
+     3
+11            11         majestic         kr_puram          0.000000       0.000000              16            7           16.0        16.0                  4          
+     4
+12            12         majestic     basavanagudi          0.000000       0.000000              12            7           12.0        12.0                  4          
+     4
+15            15         majestic   banerghatta_rd          0.000000       0.000000              14            5           14.0        14.0                  4          
+     4
+16            16         majestic          mg_road          0.000000       0.000000               5            3            6.0         6.0                  3          
+     3
+17            17         majestic         cox_town          0.000000       0.000000               2            2            5.0         5.0                  2          
+     2
+18            18         majestic          trinity          0.000000       0.000000               4            2            5.0         5.0                  2          
+     2
+19            19      indiranagar         majestic          0.000000       0.000000               6            2            8.0         9.0                  3          
+     2
+20            20      indiranagar       whitefield          0.000000       0.000000              19            9           31.0        31.0                  4          
+     3
+21            21      indiranagar        jayanagar          0.000000       0.000000              15            8           15.0        15.0                  4          
+     3
+22            22      indiranagar           hebbal          0.000000       0.000000              10            4           12.0        12.0                  4          
+     4
+23            23      indiranagar      koramangala          0.000000       0.000000               4            3            6.0         6.0                  3          
+     3
+24            24      indiranagar       silk_board          0.000000       0.000000               5            3            7.0         7.0                  3          
+     3
+25            25      indiranagar  electronic_city          0.000000       0.000000              17            4           21.0        21.0                  3          
+     3
+26            26      indiranagar      rajajinagar          0.000000       0.000000              13            3           13.0        14.0                  4          
+     3
+27            27      indiranagar       hsr_layout          0.000000       0.000000              12            2           13.0        13.0                  2          
+     2
+28            28      indiranagar     yeshwanthpur          0.000000       0.000000              16            7           16.0        16.0                  5          
+     4
+29            29      indiranagar     banashankari          0.000000       0.000000              18           10           22.0        22.0                  5          
+     4
+30            30      indiranagar         kr_puram          0.000000       0.000000              14            4           14.0        14.0                  4          
+     4
+31            31      indiranagar     basavanagudi          0.000000       0.000000               8            4           10.0        10.0                  4          
+     4
+34            34      indiranagar   banerghatta_rd          0.000000       0.000000               9            4           12.0        12.0                  4          
+     4
+35            35      indiranagar          mg_road          0.000000       0.000000               3            3            4.0         4.0                  3          
+     3
+36            36      indiranagar         cox_town          0.000000       0.000000              11            6           13.0        13.0                  4          
+     3
+37            37      indiranagar          trinity          0.000000       0.000000               2            2            3.0         3.0                  2          
+     2
+38            38       whitefield         majestic          0.000000       0.000000               2            2           23.0        23.0                  2          
+     2
+39            39       whitefield      indiranagar          0.000000       0.000000               8            3           31.0        32.0                  4          
+     3
+40            40       whitefield        jayanagar          0.000000       0.000000               7            3           30.0        30.0                  3          
+     3
+41            41       whitefield           hebbal          0.000000       0.000000              16            8           37.0        37.0                  5          
+     5
+42            42       whitefield      koramangala          0.000000       0.000000               9            4           31.0        31.0                  4          
+     4
+43            43       whitefield       silk_board          0.000000       0.000000              12            5           32.0        32.0                  4          
+     4
+44            44       whitefield  electronic_city          0.000000       0.000000              19            5           46.0        46.0                  4          
+     4
+45            45       whitefield      rajajinagar          0.000000       0.000000               4            3           28.0        28.0                  3          
+     3
+46            46       whitefield       hsr_layout          0.000000       0.000000              18            9           44.0        44.0                  5          
+     4
+47            47       whitefield     yeshwanthpur          0.000000       0.000000              10            4           31.0        31.0                  4          
+     4
+48            48       whitefield     banashankari          0.000000       0.000000              14            5           37.0        37.0                  4          
+     4
+49            49       whitefield         kr_puram          0.000000       0.000000              17            8           39.0        39.0                  5          
+     5
+50            50       whitefield     basavanagudi          0.000000       0.000000              13            8           35.0        35.0                  5          
+     5
+53            53       whitefield   banerghatta_rd          0.000000       0.000000              15            6           37.0        37.0                  5          
+     5
+54            54       whitefield          mg_road          0.000000       0.000000               6            4           29.0        29.0                  4          
+     4
+55            55       whitefield         cox_town          0.000000       0.000000               3            3           28.0        28.0                  3          
+     3
+56            56       whitefield          trinity          0.000000       0.000000               5            3           28.0        28.0                  3          
+     3
+57            57        jayanagar         majestic          0.000000       0.000000               2            2            7.0         7.0                  2          
+     2
+58            58        jayanagar      indiranagar          0.000000       0.000000               7            3           15.0        16.0                  4          
+     3
+59            59        jayanagar       whitefield          0.000000       0.000000              19            3           30.0        30.0                  3          
+     3
+60            60        jayanagar           hebbal          0.000000       0.000000              15            8           21.0        21.0                  5          
+     5
+61            61        jayanagar      koramangala          0.000000       0.000000               8            4           15.0        15.0                  4          
+     4
+62            62        jayanagar       silk_board          0.000000       0.000000              11            4           16.0        16.0                  4          
+     4
+63            63        jayanagar  electronic_city          0.000000       0.000000              18            4           30.0        30.0                  4          
+     4
+64            64        jayanagar      rajajinagar          0.000000       0.000000               4            3           12.0        12.0                  3          
+     3
+65            65        jayanagar       hsr_layout          0.000000       0.000000              17            8           28.0        28.0                  5          
+     4
+66            66        jayanagar     yeshwanthpur          0.000000       0.000000               9            4           15.0        15.0                  4          
+     4
+67            67        jayanagar     banashankari          0.000000       0.000000              13            4           21.0        21.0                  4          
+     4
+68            68        jayanagar         kr_puram          0.000000       0.000000              16            8           23.0        23.0                  5          
+     5
+69            69        jayanagar     basavanagudi          0.000000       0.000000              12            7           19.0        19.0                  5          
+     5
+72            72        jayanagar   banerghatta_rd          0.000000       0.000000              14            5           21.0        21.0                  5          
+     5
+73            73        jayanagar          mg_road          0.000000       0.000000               6            4           13.0        13.0                  4          
+     4
+74            74        jayanagar         cox_town          0.000000       0.000000               3            3           12.0        12.0                  3          
+     3
+75            75        jayanagar          trinity          0.000000       0.000000               5            3           12.0        12.0                  3          
+     3
+76            76           hebbal         majestic          0.000000       0.000000               8            4           14.0        14.0                  4          
+     4
+77            77           hebbal      indiranagar          0.000000       0.000000               4            4           12.0        12.0                  4          
+     4
+78            78           hebbal       whitefield          0.000000       0.000000              19           10           37.0        37.0                  5          
+     5
+79            79           hebbal        jayanagar          0.000000       0.000000              14            8           21.0        21.0                  5          
+     5
+80            80           hebbal      koramangala          0.000000       0.000000               5            5           12.0        12.0                  4          
+     4
+81            81           hebbal       silk_board          0.000000       0.000000               6            3           13.0        16.0                  4          
+     3
+82            82           hebbal  electronic_city          0.000000       0.000000              17            6           27.0        27.0                  4          
+     4
+83            83           hebbal      rajajinagar          0.000000       0.000000              13            5           19.0        19.0                  5          
+     5
+84            84           hebbal       hsr_layout          0.000000       0.000000              16            8           25.0        25.0                  5          
+     5
+85            85           hebbal     yeshwanthpur          0.000000       0.000000              15            6           22.0        22.0                  6          
+     6
+86            86           hebbal     banashankari          0.000000       0.000000              18           11           28.0        28.0                  6          
+     6
+87            87           hebbal         kr_puram          0.000000       0.000000              11            3           18.0        18.0                  3          
+     3
+88            88           hebbal     basavanagudi          0.000000       0.000000               7            3           14.0        14.0                  3          
+     3
+91            91           hebbal   banerghatta_rd          0.000000       0.000000              10            4           18.0        21.0                  5          
+     4
+92            92           hebbal          mg_road          0.000000       0.000000               2            2            8.0         8.0                  2          
+     2
+93            93           hebbal         cox_town          0.000000       0.000000              12            6           19.0        19.0                  5          
+     5
+94            94           hebbal          trinity          0.000000       0.000000               3            3            9.0         9.0                  3          
+     3
+95            95      koramangala         majestic          0.000000       0.000000               6            3            8.0         8.0                  3          
+     3
+96            96      koramangala      indiranagar          0.000000       0.000000               4            3            6.0         6.0                  3          
+     3
+97            97      koramangala       whitefield          0.000000       0.000000              18            9           31.0        31.0                  4          
+     4
+98            98      koramangala        jayanagar          0.000000       0.000000              13            7           15.0        15.0                  4          
+     4
+99            99      koramangala           hebbal          0.000000       0.000000               9            4           12.0        12.0                  4          
+     4
+100          100      koramangala       silk_board          0.000000       0.000000               5            3            7.0         7.0                  3          
+     3
+101          101      koramangala  electronic_city          0.000000       0.000000              16            3           21.0        21.0                  3          
+     3
+102          102      koramangala      rajajinagar          0.000000       0.000000              11            4           13.0        13.0                  4          
+     4
+103          103      koramangala       hsr_layout          0.000000       0.000000              15            5           19.0        19.0                  4          
+     4
+104          104      koramangala     yeshwanthpur          0.000000       0.000000              14            7           16.0        16.0                  5          
+     5
+105          105      koramangala     banashankari          0.000000       0.000000              17           10           22.0        22.0                  5          
+     5
+106          106      koramangala         kr_puram          0.000000       0.000000              12            5           14.0        14.0                  4          
+     4
+107          107      koramangala     basavanagudi          0.000000       0.000000               7            4           10.0        10.0                  4          
+     4
+110          110      koramangala   banerghatta_rd          0.000000       0.000000               8            4           12.0        12.0                  4          
+     4
+111          111      koramangala          mg_road          0.000000       0.000000               3            3            4.0         4.0                  3          
+     3
+112          112      koramangala         cox_town          0.000000       0.000000              10            6           13.0        13.0                  4          
+     4
+113          113      koramangala          trinity          0.000000       0.000000               2            2            3.0         3.0                  2          
+     2
+114          114       silk_board         majestic          0.000000       0.000000               8            3            9.0         9.0                  3          
+     3
+115          115       silk_board      indiranagar          0.000000       0.000000               5            3            7.0         7.0                  3          
+     3
+116          116       silk_board       whitefield          0.000000       0.000000              19           10           32.0        32.0                  4          
+     4
+117          117       silk_board        jayanagar          0.000000       0.000000              14            8           16.0        16.0                  4          
+     4
+118          118       silk_board           hebbal          0.000000       0.000000              10            4           13.0        13.0                  4          
+     3
+119          119       silk_board      koramangala          0.000000       0.000000               6            4            7.0         7.0                  3          
+     3
+120          120       silk_board  electronic_city          0.000000       0.000000              17            4           22.0        22.0                  3          
+     3
+121          121       silk_board      rajajinagar          0.000000       0.000000              12            4           14.0        14.0                  4          
+     4
+122          122       silk_board       hsr_layout          0.000000       0.000000              16            6           20.0        20.0                  4          
+     4
+123          123       silk_board     yeshwanthpur          0.000000       0.000000              15            5           17.0        17.0                  5          
+     5
+124          124       silk_board     banashankari          0.000000       0.000000              18           11           23.0        23.0                  5          
+     5
+125          125       silk_board         kr_puram          0.000000       0.000000              13            5           15.0        15.0                  4          
+     3
+126          126       silk_board     basavanagudi          0.000000       0.000000               9            6           11.0        11.0                  4          
+     3
+129          129       silk_board   banerghatta_rd          0.000000       0.000000               3            2            5.0         5.0                  2          
+     2
+130          130       silk_board          mg_road          0.000000       0.000000               4            3            5.0         8.0                  3          
+     2
+131          131       silk_board         cox_town          0.000000       0.000000              11            6           14.0        14.0                  4          
+     4
+132          132       silk_board          trinity          0.000000       0.000000               2            2            4.0         4.0                  2          
+     2
+133          133  electronic_city         majestic          0.000000       0.000000               7            3           23.0        23.0                  3          
+     3
+134          134  electronic_city      indiranagar          0.000000       0.000000               4            3           21.0        21.0                  3          
+     3
+135          135  electronic_city       whitefield          0.000000       0.000000              18           10           46.0        46.0                  4          
+     4
+136          136  electronic_city        jayanagar          0.000000       0.000000              14            8           30.0        30.0                  4          
+     4
+137          137  electronic_city           hebbal          0.000000       0.000000              10            4           27.0        27.0                  4          
+     4
+138          138  electronic_city      koramangala          0.000000       0.000000               5            3           21.0        21.0                  3          
+     3
+139          139  electronic_city       silk_board          0.000000       0.000000               6            3           22.0        22.0                  3          
+     3
+140          140  electronic_city      rajajinagar          0.000000       0.000000              12            4           28.0        28.0                  4          
+     4
+141          141  electronic_city       hsr_layout          0.000000       0.000000              16            6           34.0        34.0                  4          
+     4
+142          142  electronic_city     yeshwanthpur          0.000000       0.000000              15            7           31.0        31.0                  5          
+     5
+143          143  electronic_city     banashankari          0.000000       0.000000              17           11           37.0        37.0                  5          
+     5
+144          144  electronic_city         kr_puram          0.000000       0.000000              13            5           29.0        29.0                  4          
+     4
+145          145  electronic_city     basavanagudi          0.000000       0.000000               8            4           25.0        25.0                  4          
+     4
+148          148  electronic_city   banerghatta_rd          0.000000       0.000000               9            4           27.0        27.0                  4          
+     4
+149          149  electronic_city          mg_road          0.000000       0.000000               3            3           19.0        19.0                  3          
+     3
+150          150  electronic_city         cox_town          0.000000       0.000000              11            6           28.0        28.0                  4          
+     4
+151          151  electronic_city          trinity          0.000000       0.000000               2            2           18.0        18.0                  2          
+     2
+152          152      rajajinagar         majestic          0.000000       0.000000               3            2            5.0         5.0                  2          
+     2
+153          153      rajajinagar      indiranagar          0.000000       0.000000               9            3           13.0        14.0                  4          
+     3
+154          154      rajajinagar       whitefield          0.000000       0.000000              19            3           28.0        28.0                  3          
+     3
+155          155      rajajinagar        jayanagar          0.000000       0.000000               8            4           12.0        12.0                  3          
+     3
+156          156      rajajinagar           hebbal          0.000000       0.000000              15            7           19.0        19.0                  5          
+     5
+157          157      rajajinagar      koramangala          0.000000       0.000000              10            4           13.0        13.0                  4          
+     4
+158          158      rajajinagar       silk_board          0.000000       0.000000              12            6           14.0        14.0                  4          
+     4
+159          159      rajajinagar  electronic_city          0.000000       0.000000              18            6           28.0        28.0                  4          
+     4
+160          160      rajajinagar       hsr_layout          0.000000       0.000000              17           10           26.0        26.0                  5          
+     4
+161          161      rajajinagar     yeshwanthpur          0.000000       0.000000               2            2            3.0         3.0                  2          
+     2
+162          162      rajajinagar     banashankari          0.000000       0.000000               4            2            9.0         9.0                  2          
+     2
+163          163      rajajinagar         kr_puram          0.000000       0.000000              16            8           21.0        21.0                  5          
+     5
+164          164      rajajinagar     basavanagudi          0.000000       0.000000              13            7           17.0        17.0                  5          
+     5
+167          167      rajajinagar   banerghatta_rd          0.000000       0.000000              14            7           19.0        19.0                  5          
+     5
+168          168      rajajinagar          mg_road          0.000000       0.000000               7            4           11.0        11.0                  4          
+     4
+169          169      rajajinagar         cox_town          0.000000       0.000000               5            3           10.0        10.0                  3          
+     3
+170          170      rajajinagar          trinity          0.000000       0.000000               6            3           10.0        10.0                  3          
+     3
+171          171       hsr_layout         majestic          0.000000       0.000000               7            3           21.0        22.0                  4          
+     3
+172          172       hsr_layout      indiranagar          0.000000       0.000000               2            2           13.0        13.0                  2          
+     2
+173          173       hsr_layout       whitefield          0.000000       0.000000              19            9           44.0        44.0                  5          
+     4
+174          174       hsr_layout        jayanagar          0.000000       0.000000              15            9           28.0        28.0                  5          
+     4
+175          175       hsr_layout           hebbal          0.000000       0.000000              11            5           25.0        25.0                  5          
+     5
+176          176       hsr_layout      koramangala          0.000000       0.000000               5            4           19.0        19.0                  4          
+     4
+177          177       hsr_layout       silk_board          0.000000       0.000000               6            4           20.0        20.0                  4          
+     4
+178          178       hsr_layout  electronic_city          0.000000       0.000000              17            4           34.0        34.0                  4          
+     4
+179          179       hsr_layout      rajajinagar          0.000000       0.000000              13            4           26.0        27.0                  5          
+     4
+180          180       hsr_layout     yeshwanthpur          0.000000       0.000000              16            8           29.0        29.0                  6          
+     5
+181          181       hsr_layout     banashankari          0.000000       0.000000              18           11           35.0        35.0                  6          
+     5
+182          182       hsr_layout         kr_puram          0.000000       0.000000              14            5           27.0        27.0                  5          
+     5
+183          183       hsr_layout     basavanagudi          0.000000       0.000000               9            5           23.0        23.0                  5          
+     5
+186          186       hsr_layout   banerghatta_rd          0.000000       0.000000              10            5           25.0        25.0                  5          
+     5
+187          187       hsr_layout          mg_road          0.000000       0.000000               4            4           17.0        17.0                  4          
+     4
+188          188       hsr_layout         cox_town          0.000000       0.000000              12            7           26.0        26.0                  5          
+     4
+189          189       hsr_layout          trinity          0.000000       0.000000               3            3           16.0        16.0                  3          
+     3
+190          190     yeshwanthpur         majestic          0.000000       0.000000               3            3            8.0         8.0                  3          
+     3
+191          191     yeshwanthpur      indiranagar          0.000000       0.000000               9            4           16.0        17.0                  5          
+     4
+192          192     yeshwanthpur       whitefield          0.000000       0.000000              19            4           31.0        31.0                  4          
+     4
+193          193     yeshwanthpur        jayanagar          0.000000       0.000000               8            5           15.0        15.0                  4          
+     4
+194          194     yeshwanthpur           hebbal          0.000000       0.000000              15            7           22.0        22.0                  6          
+     6
+195          195     yeshwanthpur      koramangala          0.000000       0.000000              10            5           16.0        16.0                  5          
+     5
+196          196     yeshwanthpur       silk_board          0.000000       0.000000              12            7           17.0        17.0                  5          
+     5
+197          197     yeshwanthpur  electronic_city          0.000000       0.000000              18            7           31.0        31.0                  5          
+     5
+198          198     yeshwanthpur      rajajinagar          0.000000       0.000000               2            2            3.0         3.0                  2          
+     2
+199          199     yeshwanthpur       hsr_layout          0.000000       0.000000              17           11           29.0        29.0                  6          
+     5
+200          200     yeshwanthpur     banashankari          0.000000       0.000000               4            3           12.0        12.0                  3          
+     3
+201          201     yeshwanthpur         kr_puram          0.000000       0.000000              16            9           24.0        24.0                  6          
+     6
+202          202     yeshwanthpur     basavanagudi          0.000000       0.000000              13            8           20.0        20.0                  6          
+     6
+205          205     yeshwanthpur   banerghatta_rd          0.000000       0.000000              14            8           22.0        22.0                  6          
+     6
+206          206     yeshwanthpur          mg_road          0.000000       0.000000               7            5           14.0        14.0                  5          
+     5
+207          207     yeshwanthpur         cox_town          0.000000       0.000000               5            4           13.0        13.0                  4          
+     4
+208          208     yeshwanthpur          trinity          0.000000       0.000000               6            4           13.0        13.0                  4          
+     4
+209          209     banashankari         majestic          0.000000       0.000000               4            3           14.0        14.0                  3          
+     3
+210          210     banashankari      indiranagar          0.000000       0.000000               9            4           22.0        23.0                  5          
+     4
+211          211     banashankari       whitefield          0.000000       0.000000              19            4           37.0        37.0                  4          
+     4
+212          212     banashankari        jayanagar          0.000000       0.000000               8            4           21.0        21.0                  4          
+     4
+213          213     banashankari           hebbal          0.000000       0.000000              15            8           28.0        28.0                  6          
+     6
+214          214     banashankari      koramangala          0.000000       0.000000              10            5           22.0        22.0                  5          
+     5
+215          215     banashankari       silk_board          0.000000       0.000000              12            6           23.0        23.0                  5          
+     5
+216          216     banashankari  electronic_city          0.000000       0.000000              18            6           37.0        37.0                  5          
+     5
+217          217     banashankari      rajajinagar          0.000000       0.000000               2            2            9.0         9.0                  2          
+     2
+218          218     banashankari       hsr_layout          0.000000       0.000000              17           10           35.0        35.0                  6          
+     5
+219          219     banashankari     yeshwanthpur          0.000000       0.000000               3            3           12.0        12.0                  3          
+     3
+220          220     banashankari         kr_puram          0.000000       0.000000              16            9           30.0        30.0                  6          
+     6
+221          221     banashankari     basavanagudi          0.000000       0.000000              13            7           26.0        26.0                  6          
+     6
+224          224     banashankari   banerghatta_rd          0.000000       0.000000              14            7           28.0        28.0                  6          
+     6
+225          225     banashankari          mg_road          0.000000       0.000000               7            5           20.0        20.0                  5          
+     5
+226          226     banashankari         cox_town          0.000000       0.000000               5            4           19.0        19.0                  4          
+     4
+227          227     banashankari          trinity          0.000000       0.000000               6            4           19.0        19.0                  4          
+     4
+228          228         kr_puram         majestic          0.000000       0.000000               8            4           16.0        16.0                  4          
+     4
+229          229         kr_puram      indiranagar          0.000000       0.000000               4            4           14.0        14.0                  4          
+     4
+230          230         kr_puram       whitefield          0.000000       0.000000              19            9           39.0        39.0                  5          
+     5
+231          231         kr_puram        jayanagar         15.918732       0.000000              14            8           23.0        23.0                  5          
+     5
+232          232         kr_puram           hebbal          0.000000       0.000000               9            3           18.0        18.0                  3          
+     3
+233          233         kr_puram      koramangala          0.000000       0.000000               5            5           14.0        14.0                  4          
+     4
+234          234         kr_puram       silk_board          0.000000       0.000000               6            3           15.0        18.0                  4          
+     3
+235          235         kr_puram  electronic_city          0.000000       0.000000              17            6           29.0        29.0                  4          
+     4
+236          236         kr_puram      rajajinagar          0.000000       0.000000              13            5           21.0        21.0                  5          
+     5
+237          237         kr_puram       hsr_layout          0.000000       0.000000              16            8           27.0        27.0                  5          
+     5
+238          238         kr_puram     yeshwanthpur          0.000000       0.000000              15            7           24.0        24.0                  6          
+     6
+239          239         kr_puram     banashankari          0.000000       0.000000              18           11           30.0        30.0                  6          
+     6
+240          240         kr_puram     basavanagudi          0.000000       0.000000               7            3           16.0        16.0                  3          
+     3
+243          243         kr_puram   banerghatta_rd          0.000000       0.000000              11            4           20.0        23.0                  5          
+     4
+244          244         kr_puram          mg_road          0.000000       0.000000               2            2           10.0        10.0                  2          
+     2
+245          245         kr_puram         cox_town          0.000000       1.912832              12            7           21.0        21.0                  5          
+     5
+246          246         kr_puram          trinity          0.000000       0.000000               3            3           11.0        11.0                  3          
+     3
+247          247     basavanagudi         majestic          0.000000       0.000000               7            4           12.0        12.0                  4          
+     4
+248          248     basavanagudi      indiranagar          0.000000       0.000000               4            4           10.0        10.0                  4          
+     4
+249          249     basavanagudi       whitefield          0.000000       0.000000              19           10           35.0        35.0                  5          
+     5
+250          250     basavanagudi        jayanagar          0.000000       0.000000              14            7           19.0        19.0                  5          
+     5
+251          251     basavanagudi           hebbal          0.000000       0.000000               8            3           14.0        14.0                  3          
+     3
+252          252     basavanagudi      koramangala          0.000000       0.000000               5            5           10.0        10.0                  4          
+     4
+253          253     basavanagudi       silk_board          0.000000       0.000000               6            3           11.0        14.0                  4          
+     3
+254          254     basavanagudi  electronic_city          0.000000       0.000000              17            6           25.0        25.0                  4          
+     4
+255          255     basavanagudi      rajajinagar          0.000000       0.000000              13            5           17.0        17.0                  5          
+     5
+256          256     basavanagudi       hsr_layout          0.000000       0.000000              16            8           23.0        23.0                  5          
+     5
+257          257     basavanagudi     yeshwanthpur          0.000000       1.637936              15            7           20.0        20.0                  6          
+     6
+258          258     basavanagudi     banashankari          0.000000       0.000000              18           10           26.0        26.0                  6          
+     6
+259          259     basavanagudi         kr_puram          0.000000       0.000000              11            3           16.0        16.0                  3          
+     3
+262          262     basavanagudi   banerghatta_rd          0.000000       0.000000              10            4           16.0        19.0                  5          
+     4
+263          263     basavanagudi          mg_road          0.000000       1.445770               2            2            6.0         6.0                  2          
+     2
+264          264     basavanagudi         cox_town          0.000000       0.000000              12            7           17.0        17.0                  5          
+     5
+265          265     basavanagudi          trinity          0.000000       0.000000               3            3            7.0         7.0                  3          
+     3
+280          280     lavelle_road           ulsoor          0.000000       0.000000               2            2            2.0         2.0                  2          
+     2
+299          299           ulsoor     lavelle_road          0.000000       0.000000               2            2            2.0         2.0                  2          
+     2
+304          304   banerghatta_rd         majestic          0.000000       0.000000               8            4           14.0        14.0                  4          
+     4
+305          305   banerghatta_rd      indiranagar          0.000000       0.000000               5            4           12.0        12.0                  4          
+     4
+306          306   banerghatta_rd       whitefield          0.000000       0.000000              19           10           37.0        37.0                  5          
+     5
+307          307   banerghatta_rd        jayanagar          0.000000       0.000000              14            8           21.0        21.0                  5          
+     5
+308          308   banerghatta_rd           hebbal          0.000000       0.000000              10            5           18.0        18.0                  5          
+     4
+309          309   banerghatta_rd      koramangala          2.031565       0.000000               6            4           12.0        12.0                  4          
+     4
+310          310   banerghatta_rd       silk_board          0.000000       0.000000               2            2            5.0         5.0                  2          
+     2
+311          311   banerghatta_rd  electronic_city          0.000000       0.000000              17            4           27.0        27.0                  4          
+     4
+312          312   banerghatta_rd      rajajinagar          0.000000       0.000000              12            5           19.0        19.0                  5          
+     5
+313          313   banerghatta_rd       hsr_layout          0.000000       0.937223              16            6           25.0        25.0                  5          
+     5
+314          314   banerghatta_rd     yeshwanthpur          0.000000       0.000000              15            6           22.0        22.0                  6          
+     6
+315          315   banerghatta_rd     banashankari          0.000000       0.000000              18           11           28.0        28.0                  6          
+     6
+316          316   banerghatta_rd         kr_puram          0.000000       2.789021              13            6           20.0        20.0                  5          
+     4
+317          317   banerghatta_rd     basavanagudi          0.000000       0.000000               9            6           16.0        16.0                  5          
+     4
+320          320   banerghatta_rd          mg_road          0.000000       0.000000               4            4           10.0        13.0                  4          
+     3
+321          321   banerghatta_rd         cox_town          0.000000       0.000000              11            7           19.0        19.0                  5          
+     5
+322          322   banerghatta_rd          trinity          0.000000       0.000000               3            3            9.0         9.0                  3          
+     3
+323          323          mg_road         majestic          0.835896       0.000000               7            3            6.0         6.0                  3          
+     3
+324          324          mg_road      indiranagar          0.000000       0.000000               3            3            4.0         4.0                  3          
+     3
+325          325          mg_road       whitefield          0.000000       0.000000              19            9           29.0        29.0                  4          
+     4
+326          326          mg_road        jayanagar          0.000000       0.000000              14            7           13.0        13.0                  4          
+     4
+327          327          mg_road           hebbal          0.000000       0.000000               8            2            8.0         8.0                  2          
+     2
+328          328          mg_road      koramangala          0.000000       0.000000               4            4            4.0         4.0                  3          
+     3
+329          329          mg_road       silk_board          0.000000       0.000000               5            2            5.0         8.0                  3          
+     2
+330          330          mg_road  electronic_city          0.000000       0.000000              17            5           19.0        19.0                  3          
+     3
+331          331          mg_road      rajajinagar          0.000000       0.000000              13            4           11.0        11.0                  4          
+     4
+332          332          mg_road       hsr_layout          0.000000       0.000000              16            7           17.0        17.0                  4          
+     4
+333          333          mg_road     yeshwanthpur          0.000000       2.011776              15            6           14.0        14.0                  5          
+     5
+334          334          mg_road     banashankari          0.000000       0.000000              18           10           20.0        20.0                  5          
+     5
+335          335          mg_road         kr_puram          0.000000       0.000000              11            2           10.0        10.0                  2          
+     2
+336          336          mg_road     basavanagudi          0.000000       0.000000               6            2            6.0         6.0                  2          
+     2
+339          339          mg_road   banerghatta_rd          0.000000       0.000000              10            3           10.0        13.0                  4          
+     3
+340          340          mg_road         cox_town          0.000000       0.000000              12            6           11.0        11.0                  4          
+     4
+341          341          mg_road          trinity          0.000000       0.000000               2            2            1.0         1.0                  2          
+     2
+342          342         cox_town         majestic          0.000000       0.000000               2            2            5.0         5.0                  2          
+     2
+343          343         cox_town      indiranagar          0.000000       0.000000               7            3           13.0        14.0                  4          
+     3
+344          344         cox_town       whitefield          0.000000       0.000000              19            3           28.0        28.0                  3          
+     3
+345          345         cox_town        jayanagar          0.000000       0.000000               6            3           12.0        12.0                  3          
+     3
+346          346         cox_town           hebbal          0.000000       0.000000              15            7           19.0        19.0                  5          
+     5
+347          347         cox_town      koramangala          0.000000       0.000000               8            4           13.0        13.0                  4          
+     4
+348          348         cox_town       silk_board          0.000000       0.000000              11            5           14.0        14.0                  4          
+     4
+349          349         cox_town  electronic_city          0.000000       0.000000              18            5           28.0        28.0                  4          
+     4
+350          350         cox_town      rajajinagar          0.000000       0.000000               3            3           10.0        10.0                  3          
+     3
+351          351         cox_town       hsr_layout          2.028465       0.000000              17            9           26.0        26.0                  5          
+     4
+352          352         cox_town     yeshwanthpur          0.000000       0.000000               9            4           13.0        13.0                  4          
+     4
+353          353         cox_town     banashankari          0.000000       0.000000              13            5           19.0        19.0                  4          
+     4
+354          354         cox_town         kr_puram          0.000000       0.000000              16            7           21.0        21.0                  5          
+     5
+355          355         cox_town     basavanagudi          0.000000       0.000000              12            8           17.0        17.0                  5          
+     5
+358          358         cox_town   banerghatta_rd          0.000000       0.000000              14            6           19.0        19.0                  5          
+     5
+359          359         cox_town          mg_road          0.000000       0.000000               5            4           11.0        11.0                  4          
+     4
+360          360         cox_town          trinity          0.000000       0.000000               4            3           10.0        10.0                  3          
+     3
+361          361          trinity         majestic          0.000000       0.000000               6            2            5.0         5.0                  2          
+     2
+362          362          trinity      indiranagar          0.000000       0.000000               3            2            3.0         3.0                  2          
+     2
+363          363          trinity       whitefield          0.000000       0.000000              18            9           28.0        28.0                  3          
+     3
+364          364          trinity        jayanagar          0.000000       1.971483              13            7           12.0        12.0                  3          
+     3
+365          365          trinity           hebbal          0.000000       0.000000               9            3            9.0         9.0                  3          
+     3
+366          366          trinity      koramangala          0.000000       0.447035               4            2            3.0         3.0                  2          
+     2
+367          367          trinity       silk_board          0.000000       0.000000               5            2            4.0         4.0                  2          
+     2
+368          368          trinity  electronic_city          0.000000       0.000000              16            2           18.0        18.0                  2          
+     2
+369          369          trinity      rajajinagar          0.000000       0.000000              11            3           10.0        10.0                  3          
+     3
+370          370          trinity       hsr_layout          0.000000       0.000000              15            5           16.0        16.0                  3          
+     3
+371          371          trinity     yeshwanthpur          0.000000       0.000000              14            6           13.0        13.0                  4          
+     4
+372          372          trinity     banashankari          0.000000       0.000000              17           10           19.0        19.0                  4          
+     4
+373          373          trinity         kr_puram          0.000000       0.000000              12            4           11.0        11.0                  3          
+     3
+374          374          trinity     basavanagudi          0.000000       0.000000               7            3            7.0         7.0                  3          
+     3
+377          377          trinity   banerghatta_rd          0.000000       0.000000               8            3            9.0         9.0                  3          
+     3
+378          378          trinity          mg_road          0.000000       0.000000               2            2            1.0         1.0                  2          
+     2
+379          379          trinity         cox_town          0.000000       0.000000              10            5           10.0        10.0                  3          
+     3
+
+====================================================================================================
+ OVERALL SUMMARY STATISTICS
+====================================================================================================
+       dijkstra_time_ms  astar_time_ms  dijkstra_nodes  astar_nodes  dijkstra_cost  astar_cost
+count        308.000000     308.000000      308.000000   308.000000     308.000000  308.000000
+mean           0.067580       0.086169       10.418831     4.935065      17.935065   18.068182
+std            0.921937       0.811455        5.291186     2.379816       9.295493    9.248922
+min            0.000000       0.000000        2.000000     2.000000       1.000000    1.000000
+25%            0.000000       0.000000        6.000000     3.000000      11.000000   12.000000
+50%            0.000000       0.000000       11.000000     4.000000      16.500000   17.000000
+75%            0.000000       0.000000       15.000000     7.000000      24.000000   24.000000
+max           15.918732      13.386965       19.000000    11.000000      46.000000   46.000000
+
+====================================================================================================
+ CATEGORICAL PERFORMANCE ANALYSIS (by route length)
+====================================================================================================
+C:\Users\Adhithi C Iyer\Desktop\bid11\bid1\test_algorithm_performance.py:211: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  categorical_summary = df.groupby('route_len_category')[[
+                    dijkstra_time_ms  astar_time_ms  dijkstra_nodes  astar_nodes
+route_len_category
+Short (<=3 nodes)           0.007740       0.159734        6.472222      2.87037
+Medium (4-6 nodes)          0.099894       0.046444       12.550000      6.05000
+Long (>6 nodes)                  NaN            NaN             NaN          NaN
+
+====================================================================================================
+ OVERALL PERFORMANCE ANALYSIS
+====================================================================================================
+Average Dijkstra Time: 0.0676 ms
+Average A* Time: 0.0862 ms
+Average Dijkstra Nodes Explored: 10.42
+Average A* Nodes Explored: 4.94
+
+=> Dijkstra's is on average 21.57% faster than A*.
+=> A* explores on average 52.63% fewer nodes than Dijkstra's.
+
+--- A* Performance Highlights ---
+Best time improvement vs Dijkstra: Route kr_puram -> jayanagar (15.92 ms faster)
+Worst time improvement vs Dijkstra: Route majestic -> rajajinagar (13.39 ms slower)
+Best nodes improvement vs Dijkstra: Route majestic -> whitefield (17 fewer nodes)
+Worst nodes improvement vs Dijkstra: Route majestic -> cox_town (0 more nodes)
+====================================================================================================
+
+--- Generating plot for Short routes ---
+📊 Visualization saved to algorithm_performance_short_routes.png
+
+--- Generating plot for Medium routes ---
+📊 Visualization saved to algorithm_performance_medium_routes.png
+
+====================================================================================================
+ GENERATING HEATMAPS
+====================================================================================================
+📊 Heatmap saved to heatmap_astar_time.png
+📊 Heatmap saved to heatmap_dijkstra_time.png
+📊 Heatmap saved to heatmap_time_improvement.png
+
+====================================================================================================
+ MODE-SPECIFIC PERFORMANCE ANALYSIS
+====================================================================================================
+
+--- Testing with mode: BUS ---
+
+--- Testing with mode: METRO ---
+
+📊 Mode comparison plot saved to algorithm_mode_comparison.png
+
+====================================================================================================
+ SCALING ANALYSIS (TIME & MEMORY)
+====================================================================================================
+Testing with a subgraph of 5 nodes...
+Testing with a subgraph of 10 nodes...
+Testing with a subgraph of 15 nodes...
+Testing with a subgraph of 20 nodes...
+   nodes  dijkstra_time_avg  astar_time_avg  dijkstra_mem_avg_kb  astar_mem_avg_kb
+0      5           0.000000        0.000000             0.333984          0.317578
+1     10           0.000000        0.153170             0.851562          1.281680
+2     15           0.295820        0.333991             1.013906          1.643750
+3     20           0.293498        0.456901             1.508125          2.134219
+
+📊 Scaling analysis plot saved to algorithm_scaling_analysis.png
+
+====================================================================================================
+ANALYSIS COMPLETE
+====================================================================================================
+(base) PS C:\Users\Adhithi C Iyer\Desktop\bid11\bid1> ^C
+(base) PS C:\Users\Adhithi C Iyer\Desktop\bid11\bid1> 
