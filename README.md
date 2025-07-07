@@ -31,7 +31,8 @@
 
 ## 📸 Screenshots
 
-> _Add screenshots or GIFs of your app here for maximum impact!_
+> ![Prototype Snippets](./prototype_snippets.png)
+>![Database Snippets](./database_snippets.png)
 
 ---
 
@@ -106,7 +107,7 @@ python app.py
 
 ### 5. Use the Web Interface
 
-- Open `index.html` or `visualizer.html` in your browser.
+- Open `index.html` in your browser.
 - The frontend will connect to the backend API for data and route calculations.
 
 ---
@@ -139,7 +140,7 @@ Contributions are welcome! Please open issues or pull requests for improvements,
 
 ---
 
-## 👩‍💻 Authors
+## 👩‍💻 Contributors
 
 - [Adhithi C Iyer](https://github.com/Adhithi02)
-- Akshatha N 
+- [Akshatha N](https://github.com/AkshathaN17)
