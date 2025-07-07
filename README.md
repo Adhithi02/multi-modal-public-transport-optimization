@@ -31,8 +31,8 @@
 
 ## 📸 Screenshots
 
-> ![Prototype Snippets](./prototype_snippets.png)
->![Database Snippets](./database_snippets.png)
+> ![Prototype Snippets](./prototype_snippets.png.png)
+>![Database Snippets](./database_snippets.png.png)
 
 ---
 
